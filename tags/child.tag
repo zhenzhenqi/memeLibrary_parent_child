@@ -1,10 +1,16 @@
 <child>
-	<img src={ meme.url } alt="user image" />
-	<h1>{ meme.caption }</h1>
-	<button type="button" onclick={ this.parent.remove }>Remove Meme</button>
+		<img src={ url } alt="user image" />
+		<p>{ caption }</p>
+		<button type="button" onclick={ parent.remove }>Remove Meme</button>
+<style>
+	:scope {
+		display: inline-block;
+	}
+
+</style>
 
 	<script>
-			//console.log(this.parent);
+			console.log(this.parent);
 	</script>
 
 

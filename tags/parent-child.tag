@@ -13,7 +13,7 @@
 		<p>NO MEMEs</p>
 	</div>
 
-	<child each={ meme in myMemes }>
+	<child each={ myMemes }>
 	</child>
 
 	<script>
@@ -35,16 +35,15 @@
 		var that  =  this;
 
 		this.remove = function(event) {
-			// console.log('EVENT:', event);
+			console.log('EVENT:', event);
 			// console.log('EVENT.ITEM', event.item);
-			var memeObj = event.item.meme;
+			var memeObj = event.item;
 			//in this context, since this function is invoked by child.tag. so this == child
 
-
-
 			var index = that.myMemes.indexOf(memeObj);
+			//remember the remove button is called by child. so we cannot type this to refer to the parent
+			//we have to give it a new name
 			that.myMemes.splice(index, 1);
-
 			that.update();
 		};
 
