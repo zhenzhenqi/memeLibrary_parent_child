@@ -44,6 +44,10 @@
 			//remember the remove button is called by child. so we cannot type this to refer to the parent
 			//we have to give it a new name
 			that.myMemes.splice(index, 1);
+			//try to comment out this line and see what happens
+			//in riot, js object data value only gets updated by user event trigger.
+			//since in this case, event is triggered by child, parent data won't be updated until
+			//we call it to update manually.
 			that.update();
 		};
 
