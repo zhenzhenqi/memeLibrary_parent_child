@@ -32,25 +32,32 @@
 			caption: "hihihi" }
 		];
 
+		var that  =  this;
+
 		this.remove = function(event) {
-			console.log('EVENT:', event);
-			console.log('EVENT.ITEM', event.item);
-			//In RiotJS, event.item refers to the book object of the child tag where the click event occurred.
-			var memeObj = event.item;
-			var index = this.myMemes.indexOf(memeObj);
-			this.myMemes.splice(index, 1);
+			// console.log('EVENT:', event);
+			// console.log('EVENT.ITEM', event.item);
+			var memeObj = event.item.meme;
+			//in this context, since this function is invoked by child.tag. so this == child
+
+
+
+			var index = that.myMemes.indexOf(memeObj);
+			that.myMemes.splice(index, 1);
+
+			that.update();
 		};
 
-			this.addMeme = function(event) {
-				console.log(event);
-				var url = this.refs.urlEl.value;
-				var caption = this.refs.captionEl.value;
-				var meme = { url: url, caption: caption };
-				// We are adding a book object to the source of truth array.
-				this.myMemes.push(meme);
-				// RESET INPUTS this.refs.urlEl.value = "";
-				this.refs.captionEl.value = "";
-			};
+		this.addMeme = function(event) {
+			console.log(event);
+			var url = this.refs.urlEl.value;
+			var caption = this.refs.captionEl.value;
+			var meme = { url: url, caption: caption };
+			// We are adding a book object to the source of truth array.
+			this.myMemes.push(meme);
+			// RESET INPUTS this.refs.urlEl.value = "";
+			this.refs.captionEl.value = "";
+		};
 	</script>
 
 	<style>
